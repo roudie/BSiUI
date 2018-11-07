@@ -10,8 +10,8 @@ import java.net.Socket;
 import java.util.Scanner;
 
 public class ClientApp {
-    private String serverAdress = "192.168.1.21";
-    private int serverPort = 5001;
+    private String serverAdress = "";
+    private int serverPort = 0;
     private Object lock;
 
     public ClientApp() {
@@ -20,11 +20,6 @@ public class ClientApp {
         if(serverPort==0) serverPort = askServerPort();
 
         lock = new Object();
-
-        //String x = VigenereCipher.Encrypt("1", "asd", "sebaXXxseba");
-        //String y = VigenereCipher.Decrypt("1", "asd", x);
-        //String x= MatrixCipher.Encrypt("z\u007Fl");
-        //String y = MatrixCipher.Decrypt(x);
 
         Socket socket = null;
         try {

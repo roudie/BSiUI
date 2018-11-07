@@ -11,10 +11,10 @@ import java.util.Scanner;
 public class CipherChatApp {
 
     public static void main(String[] args){
-        //String dbUrl = CipherChatApp.askDbUrl();
-        //int port = askPort();
-        String dbUrl = "C:\\Users\\Sebastian\\Documents\\git\\encryptedChat-master\\chat.db";
-        int port = 5001;
+        String dbUrl = CipherChatApp.askDbUrl();
+        int port = askPort();
+        //String dbUrl = "C:\\Users\\Sebastian\\Documents\\git\\encryptedChat-master\\chat.db";
+        //int port = 5001;
 
         UserContext userContext = new UserContext(dbUrl);
         userContext.removeAllUsers();

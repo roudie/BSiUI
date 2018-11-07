@@ -77,18 +77,22 @@ public class ClientLogic {
                 continueLoggedMenu();
                 break;
             case TEXT:
-                if(jsonMessage.getP1().equals("true"))
+                if(jsonMessage.getP1().equals("true")) {
                     System.out.println("Wiadomosc dostarczono");
-                else {
-                    System.out.println("Wiadnomosc od " + jsonMessage.getP1());
-                    String message = jsonMessage.getP3();
-                    if(matrix)
-                        message = MatrixCipher.Decrypt(message);
-                    if(xor)
-                        message = XorCipher.Decrypt(jsonMessage.getP1(), jsonMessage.getP2(), message);
-                    if(vigienere)
-                        message = VigenereCipher.Decrypt(jsonMessage.getP1(), jsonMessage.getP2(), message);
-                    System.out.println(message);
+                } else {
+                    if(jsonMessage.getP3()==null) {
+                        System.out.println(jsonMessage.getP2());
+                    } else {
+                        System.out.println("Wiadnomosc od " + jsonMessage.getP1());
+                        String message = jsonMessage.getP3();
+                        if (matrix)
+                            message = MatrixCipher.Decrypt(message);
+                        if (xor)
+                            message = XorCipher.Decrypt(jsonMessage.getP1(), jsonMessage.getP2(), message);
+                        if (vigienere)
+                            message = VigenereCipher.Decrypt(jsonMessage.getP1(), jsonMessage.getP2(), message);
+                        System.out.println(message);
+                    }
                 }
                 break;
             case PONG:
